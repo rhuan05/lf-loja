@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+.fa-x:before, .searchPhone:before {
+    display: none;
+}
+body{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background: #E4E4E4;
+}
+header{
+    display: flex;
+    height: 70px;
+    background: #FFC839;
+    align-items: center;
+    padding: 0 40px;
+}
+header .logo{
+    font-size: 36px;
+    font-weight: bold;
+    color: white;
+}
+header .form-search{
+    margin: 0 auto;
+    width: 600px;
+}
+.form-search form{
+    width: 100%;
+}
+.form-search form input{
+    width: 100%;
+    font-size: 14px;
+    padding: 8px 5px;
+}
+.busca{
+    display: flex;
+    width: 300px;
+}
+.busca input{
+    width: 100%;
+    height: 20px;
+    margin-top: 15px;
+    font-size: 16px;
+    padding: 3px 5px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+.busca button{
+    width: 30px;
+    margin-left: -25px;
+    background: #373737;
+    border: none;
+    cursor: pointer;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.busca i{
+    color: white;
+    width: 100%;
+}
+.iconsForm{
+    height: 100%;
+    width: 30px;
+    margin-top: -10px;
+}
+.iconsForm button{
+    height: 37px;
+    width: 100%;
+}
+.contatoTop{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    height: 40px;
+    align-items: center;
+    gap: 5px;
+}
+.wppImg{
+    width: 20px;
+    height: 20px;
+    border-radius: 30px;
+    padding: 3px;
+    background: #0FFF27;
+}
+.wppImg img{
+    width: 100%;
+}
+.contatoTop p{
+    font-weight: bold;
+}
+.banner{
+    width: 100%;
+}
+.banner img{
+    width: 100%;
+}
+.fileiras{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 80px;
+}
+.produto--flex{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.container--produto{
+    box-shadow: 0px 0px 10px 2px rgb(184, 184, 184);
+    margin: 10px;
+    border-radius: 5px;
+    text-align: center;
+    width: 200px;
+    padding: 5px;
+    cursor: pointer;
+    background: white;
+}
+.imgProduto{
+    margin: auto;
+    width: 90%;
+}
+.container--produto h3{
+    margin: 0;
+    font-size: 16px;
+}
+.container--produto p{
+    margin: 0;
+    font-size: 22px;
+    font-weight: bold;
+}
+.container--produto .btnContato{
+    font-weight: bold;
+    color: white;
+    background: #FFC839;
+    font-size: 16px;
+    width: 80%;
+    padding: 3px 0px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+h2{
+    text-align: center;
+}
+h3, .container--produto p{
+    text-align: center;
+}
+.zeroProdutosEncontrados{
+    text-align: center;
+}
+.search{
+    margin-top: 30px;
+}
+footer{
+    background:#FFC839;
+    width: 100%;
+    height: 80px;
+    margin-top: 100px;
+}
+@media(max-width: 850px){
+    .fa-magnifying-glass:before, .fa-x:before {
+        display: inline-block;
+    }
+    .fa-x{
+        margin-top: 5px;
+    }
+    header{
+        display: flex;
+        justify-content: space-between;
+    }
+    header .form-search{
+        width: 100vw;
+        display: none;
+    }
+    .form-search form{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 70px;
+    }
+    .form-search form input{
+        font-size: 26px;
+        border-radius: 0px;
+        width: 100%;
+        padding: 0px 10px;
+        height: 100%;
+        margin-top: 0px;
+    }
+    .iconsForm{
+        display: flex;
+        justify-content: center;
+        margin-left: -100px;
+        width: 60px;
+        position: absolute;
+        right: 20px;
+        top: 28px;
+    }
+    .busca button{
+        width: 30px;
+        background: #ffffff;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+    .busca i{
+        color: rgb(117, 117, 117);
+        font-size: 26px;
+        cursor: pointer;
+        opacity: .5;
+    }
+    .searchPhone{
+        color: white;
+        font-size: 26px;
+        cursor: pointer;
+    }
+    body.mostrarSearch .form-search{
+        display: block;
+    }
+}
+@media(max-width: 532px){
+    .produto--flex{
+        flex-wrap: nowrap;
+    }
+    .overflow{
+        overflow-x: auto;
+    }
+    .fileiras{
+        width: 100%;
+    }
+    .form-search form input{
+        font-size: 18px;
+    }
+    .container--produto .btnContato{
+        font-size: 14px;
+    }
+}
+@media(max-width: 375px){
+    .contatoTop p{
+        font-size: 14px;
+    }
+}

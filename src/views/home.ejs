@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudos</title>
+    <link rel="stylesheet" href="home/home.css">
+    <link rel="shortcut icon" href="images/favicon-r.png" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/e0a5611951.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">LF</div>
+        <div class="form-search">
+            <form method="post" class="busca">
+                <input type="text" name="procurarProduto" id="inputSearch" placeholder="Nome do produto" />
+                <div class="iconsForm">
+                    <i onclick=mostraSearch() class="fa-solid fa-x"></i>
+                    <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+            </form>
+        </div>
+        <i onclick=mostraSearch() class="fa-solid fa-magnifying-glass searchPhone"></i>
+    </header>
+    <main>
+        <section class="contatoTop">
+            <div class="wppImg">
+                <img src="images/whatsapp-logo.webp" alt="Whatsapp logo" />
+            </div>
+            <p>Entre em contato pelo whatsapp</p>
+        </section>
+        <section class="banner">
+            <img src="images/imagem-banner.png" alt="Imagem do banner" />
+        </section>
+        <section class="fileiras">
+            <% for(let contador=0; contador < fileiras.length; contador++) {%>
+                <h2><%= fileiras[contador].titulo %></h2>
+                <div class="overflow">
+                    <div class="produto--flex" id="<%= fileiras[contador].titulo.replace(/\s+/g, '').toLowerCase() %>">
+                        <% for(let i=0; i < fileiraProdutos.length; i++) { %>
+                            <% if(fileiraProdutos[i].fileira === fileiras[contador].titulo) { %>
+                                <div class="container--produto">
+                                    <img class="imgProduto" src="<%= fileiraProdutos[i].img %>" alt="Imagem do produto" />
+                                    <h3><%= fileiraProdutos[i].nome %></h3>
+                                    <p>R$<%= fileiraProdutos[i].preco %></p>
+                                    <button class="btnContato">Entre em contato</button>
+                                </div>
+                            <% } %>
+                        <% } %>
+                    </div>
+                </div>
+            <% } %>
+        </section>
+    </main>
+    <footer></footer>
+    <script src="home/home.js"></script>
+</body>
+</html>

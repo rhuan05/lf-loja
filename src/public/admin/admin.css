@@ -1,0 +1,429 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+
+body{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+}
+button{
+    background: rgb(0, 209, 63);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+}
+input{
+    outline: none;
+}
+
+.erro{
+    width: 100vw;
+    background: rgb(255, 69, 69);
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.container{
+    width: 100%;
+    max-width: 768px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.model-novaFileira{
+    display: none;
+    width: 300px;
+    background: rgb(214, 214, 214);
+    padding: 10px;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    margin: -100px 0 0 -150px;
+    border-radius: 5px;
+    border: 2px solid black;
+    padding-bottom: 30px;
+    z-index: 1;
+}
+.model-novaFileira .fecharModeloFileira{
+    text-align: center;
+    position: absolute;
+    border-radius: 50px;
+    cursor: pointer;
+    right: 18px;
+}
+.model-novaFileira form{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 28px;
+    text-align: center;
+}
+h3{
+    margin: 10px 0px;
+}
+.model-novaFileira input{
+    width: 99%;
+    border: none;
+    padding: 3px 5px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+.model-novaFileira button{
+    width: 103%;
+    padding: 3px 0;
+    margin-top: 10px;
+}
+
+.model-novoProduto{
+    display: none;
+    width: 600px;
+    background: rgb(214, 214, 214);
+    padding: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -180px 0 0 -300px;
+    border-radius: 5px;
+    border: 2px solid black;
+    padding-bottom: 30px;
+    z-index: 1;
+}
+.model-novoProduto form{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.model-novoProduto input{
+    width: 99%;
+    border: none;
+    padding: 3px 5px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+.model-novoProduto select{
+    width: 180px;
+    margin: 0 auto;
+}
+.model-novoProduto button{
+    width: 103%;
+    padding: 3px 0;
+    margin-top: 10px;
+}
+.model-novoProduto .x{
+    text-align: center;
+    border-radius: 50px;
+    position: absolute;
+    right: 10px;
+}
+
+.model-editarProduto{
+    display: none;
+    width: 300px;
+    background: rgb(214, 214, 214);
+    padding: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 5px;
+    border: 2px solid black;
+    padding-bottom: 30px;
+    z-index: 1;
+    margin: -150px 0 0 -150px;
+    flex-direction: column;
+    gap: 3px;
+}
+.model-editarProduto input{
+    width: 99%;
+    border: none;
+    padding: 3px 5px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+.model-editarProduto button{
+    margin-top: 10px;
+}
+.model-editarProduto h3{
+    text-align: center;
+}
+
+body.ativarModelFileira .model-novaFileira{
+    display: block;
+}
+.container--fileira{
+    display: flex;
+    flex-direction: column;
+}
+.container--fileira h2{
+    margin-top: 80px;
+}
+.fileiras{
+    display: flex;
+    gap: 5px;
+}
+.fileira--elemento{
+    width: 200px;
+    background: rgb(214, 214, 214);
+    border-radius: 5px;
+    padding: 5px;
+}
+.tituloFileira{
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+.x{
+    background: rgb(255, 69, 69);
+    color: white;
+    width: 24px;
+    height: 24px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.fecharEditarProduto{
+    text-align: center;
+    position: absolute;
+    right: 15px;
+    border-radius: 50px;
+}
+.btnNovaFileira{
+    padding: 5px 15px;
+    margin-top: 10px;
+    width: 140px;
+}
+
+body.ativarModelProduto .model-novoProduto{
+    display: block;
+}
+.sectionProdutos{
+    display: flex;
+    flex-direction: column;
+}
+table{
+    width: 100%;
+    border-radius: 5px;
+    background: rgb(214, 214, 214);
+    padding: 5px;
+}
+.overflow{
+    max-height: 300px;
+    overflow-y: auto;
+}
+.overflow::-webkit-scrollbar{
+    background: rgb(214, 214, 214);
+    width: 5px;
+}
+.overflow::-webkit-scrollbar-thumb{
+    background-color: rgb(0, 209, 63);
+    border-radius: 50px;
+}
+td{
+    margin: 0;
+    padding: 0;
+    background:rgb(236, 236, 255);
+    border-radius: 5px;
+    color: rgb(50, 50, 50);
+}
+td button{
+    background: rgb(255, 69, 69);
+}
+.tdIconEdit{
+    width: 24px;
+    height: 24px;
+    border-radius: 3px;
+    background: rgb(0, 209, 63);
+    overflow: hidden;
+    cursor: pointer;
+}
+.fa-solid{
+    color: white;
+}
+.btnNovoProduto{
+    padding: 5px 15px;
+    margin-top: 10px;
+    width: 140px;
+}
+
+.confirmacaoParaExcluir{
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -150px 0 0 -150px;
+    width: 300px;
+    background: rgb(214, 214, 214);
+    border-radius: 5px;
+    border: 2px solid black;
+    padding-bottom: 30px;
+}
+.confirmacaoParaExcluir .deletarFileira{
+    width: 90%;
+    margin-top: 10px;
+}
+.confirmacaoParaExcluir p{
+    width: 75%;
+    margin: 0 auto;
+    margin-top: 25px;
+}
+.cancelarExcluir{
+    width: 25px;
+    height: 25px;
+    border-radius: 50px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+.container--fileira-overflow{
+    overflow: auto;
+}
+.container--fileira-overflow::-webkit-scrollbar{
+    background: rgb(214, 214, 214);
+    width: 5px;
+    height: 5px;
+}
+.container--fileira-overflow::-webkit-scrollbar-thumb{
+    background: rgb(240, 240, 240);
+    width: 5px;
+}
+.btnMostrarAlerta{
+    display: block;
+    font-weight: bold;
+    margin-left: -20px;
+}
+.idNone{
+    display: none;
+}
+@media(max-width: 768px){
+    .container{
+        width: 90%;
+    }
+    .overflow::-webkit-scrollbar{
+        background: rgb(214, 214, 214);
+        width: 5px;
+    }
+    .overflow::-webkit-scrollbar-thumb{
+        background: rgb(240, 240, 240);
+        width: 5px;
+    }
+}
+@media(max-width: 425px){
+    .container--fileira h2{
+        margin-top: 60px;
+    }
+    .model-novaFileira{
+        width: 100%;
+        height: 100%;
+        padding: 0px;
+        top: 0px;
+        left: 0px;
+        margin: 0px 0 0 0px;
+        border-radius: 0px;
+        border: none;
+        padding-bottom: 0px;
+    }
+    h3{
+        margin-top: 100px;
+    }
+    .fecharModeloFileira, .fecharModeloProduto, .cancelarExcluir{
+        right: 24px;
+        top: 20px;
+        font-size: 22px;
+        padding: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+    }
+    .model-novoProduto{
+        width: 100%;
+        height: 100%;
+        padding: 0px;
+        top: 0px;
+        left: 0px;
+        margin: 0px 0 0 0px;
+        border-radius: 0px;
+        border: none;
+        padding-bottom: 0px;
+    }
+    .confirmacaoParaExcluir{
+        width: 100vw;
+        height: 100vh;
+        left: 0;
+        top: 0;
+        margin: 0px 0 0 0px;
+        border-radius: 0px;
+        border: none;
+        padding-bottom: 0;
+    }
+    .confirmacaoParaExcluir p{
+        margin-top: 150px;
+        font-size: 22px;
+        width: 90%;
+    }
+    .confirmacaoParaExcluir .deletarFileira{
+        font-size: 18px;
+        height: 30px;
+        margin: 0 auto;
+        width: 75%;
+        margin-top: 10px;
+    }
+    .model-editarProduto{
+        width: 100%;
+        height: 100%;
+        padding: 0px;
+        top: 0px;
+        left: 0px;
+        margin: 0px 0 0 0px;
+        border-radius: 0px;
+        border: none;
+        padding-bottom: 0px;
+    }
+    .model-editarProduto input{
+        width: 90%;
+        margin: 0 auto;
+    }
+    .model-editarProduto button{
+        width: 92%;
+        margin: 0 auto;
+        margin-top: 10px;
+        padding: 3px 0px;
+    }
+    .fecharEditarProduto{
+        top: 20px;
+        font-size: 22px;
+        padding: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+    }
+}
+@media(max-width: 375px){
+    .erro{
+        font-size: 11px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+@media(max-width: 320px){
+    .confirmacaoParaExcluir .deletarFileira {
+        font-size: 16px;
+    }
+    .erro{
+        font-size: 10px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

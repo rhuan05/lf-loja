@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudos</title>
+    <link rel="stylesheet" href="admin/admin.css">
+    <link rel="shortcut icon" href="images/favicon-r.png" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/e0a5611951.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="model-novaFileira">
+        <div class="fecharModeloFileira x">X</div>
+        <form action="admin-nova-fileira" method="post">
+            <h3>Adicionar fileira</h3>
+            <input type="text" name="titulo" class="tituloFileiraInput" placeholder="Titulo da fileira">
+            <button>Adicionar fileira</button>
+        </form>
+    </div>
+    <div class="model-novoProduto">
+        <div class="fecharModeloProduto x">X</div>
+        <form action="admin-criar-produto" method="post" enctype="multipart/form-data">
+            <h3>Adicionar produto</h3>
+            <input type="text" name="name" class="nomeProdutoInput" placeholder="Nome" />
+            <input type="text" name="preco" class="precoProdutoInput" placeholder="Preço" />
+            <input type="file" name="imgProduto" id="imgProduto" placeholder="Imagem do produto" />
+            <select name="select">
+                <option value="valorNuloSelect">Clique e selecione a fileira</option>
+                <% for(let i=0; i < fileiras.length; i++) { %>
+                    <option value="<%= fileiras[i].titulo %>"><%= fileiras[i].titulo %></option>
+                <% } %>
+            </select>
+            <button>Criar produto</button>
+        </form>
+    </div>
+    <% if(error.length !== 0) {%>
+        <div class="erro"><%= error %></div>
+    <% } %>
+    <div class="container">
+        <section class="container--fileira">
+            <h2>Suas fileiras</h2>
+            <div class="container--fileira-overflow">
+                <div class="fileiras">
+                    <% for(let i=0; i < fileiras.length; i++) {%>
+                        <div class="fileira--elemento">
+                            <div class="tituloFileira">
+                                <%= fileiras[i].titulo %>
+                                <form action="admin-fileira-delete" method="post">
+                                    <div class="deletarFileira x btnMostrarAlerta">X</div>
+                                    <div class="confirmacaoParaExcluir">
+                                        <input type="hidden" name="id" value="<%= fileiras[i]._id %>" />
+                                        <input type="hidden" name="titulo" value="<%= fileiras[i].titulo %>" />
+                                        <div class="cancelarExcluir x">X</div>
+                                        <p>Excluindo essa fileira você estará excluindo também todos os produtos que estão nela.</p>
+                                        <button class="deletarFileira x">Quero excluir mesmo assim!</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+            <button class="btn btnNovaFileira">Nova fileira</button>
+        </section>
+
+        <section class="sectionProdutos">
+            <h2>Seus produtos</h2>
+            <div class="overflow">
+                <form class="model-editarProduto" action="admin-editar-produto" method="post">
+                    <div class="fecharEditarProduto x">X</div>
+                    <h3>Editar produto</h3>
+                    <div class="paraEditar"></div>
+                    <input type="hidden" name="idProduto" id="idProdutoInput">
+                    <input type="text" name="novoNome" placeholder="Novo nome" />
+                    <div class="paraEditar"></div>
+                    <input type="text" name="novoPreco" placeholder="Novo preço" />
+                    <div class="paraEditar"></div>
+                    <select name="novaFileira">
+                        <option>Clique para mudar fileira</option>
+                        <% for(let i=0; i < fileiras.length; i++) { %>
+                            <option value="<%= fileiras[i].titulo %>"><%= fileiras[i].titulo %></option>    
+                        <% } %>
+                    </select>
+                    <button>Editar</button>
+                </form>
+                <table>
+                    <thead>
+                        <th>Nome</th>
+                        <th>Preço</th>
+                        <th>Fileira</th>
+                    </thead>
+                    <tbody>
+                        <% for(let i=0; i < produtos.length; i++) { %>
+                            <tr>
+                                <td><%= produtos[i].nome %></td>
+                                <td><%= produtos[i].preco %></td>
+                                <td><%= produtos[i].fileira %></td>
+                                <td class="idNone"><%= produtos[i]._id %></td>
+                                <td class="tdIconEdit">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </td>
+                                <form action="admin-deletar-produto" method="post">
+                                    <input type="hidden" name="id" value="<%= produtos[i]._id %>">
+                                    <td class="x"><button>X</button></td>
+                                </form>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+            <button class="btn btnNovoProduto">Novo produto</button>
+        </section>
+    </div>
+    <script src="admin/admin.js"></script>
+</body>
+</html>
