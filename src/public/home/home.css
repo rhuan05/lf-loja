@@ -189,7 +189,7 @@ footer{
         width: 100%;
         padding: 0px 10px;
         height: 100%;
-        margin-top: 0px;
+        margin-top: 10px;
     }
     .iconsForm{
         display: flex;
@@ -198,13 +198,14 @@ footer{
         width: 60px;
         position: absolute;
         right: 20px;
-        top: 28px;
+        top: 38px;
     }
     .busca button{
         width: 30px;
         background: #ffffff;
         border-top-right-radius: 0px;
         border-bottom-right-radius: 0px;
+        margin-top: 0px;
     }
     .busca i{
         color: rgb(117, 117, 117);
