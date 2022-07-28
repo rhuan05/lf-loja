@@ -30,7 +30,7 @@ exports.adicionarFileira = async (req, res)=>{
 
     try{
         await novaFileira.save();
-        res.redirect('http://localhost:3000/admin');
+        res.redirect('https://lf-papelaria.herokuapp.com/admin');
     }catch(error){
         console.log(error);
     };
@@ -46,7 +46,7 @@ exports.deletarFileira = async (req, res)=>{
         for(let i=0; i<produtosDaFileira.length; i++){
             await ProdutoModel.findByIdAndDelete(produtosDaFileira[i]);
         }
-        res.redirect('http://localhost:3000/admin');
+        res.redirect('https://lf-papelaria.herokuapp.com/admin');
     }catch(error){
         console.log(error);
     };
@@ -90,7 +90,7 @@ exports.criarProduto = async (req, res)=>{
         });
 
         await novoProduto.save();
-        res.redirect('http://localhost:3000/admin');
+        res.redirect('https://lf-papelaria.herokuapp.com/admin');
     }catch(error){
         console.log(error);
     }
@@ -101,7 +101,7 @@ exports.deletarProduto = async (req, res)=>{
 
     try{
         await ProdutoModel.findByIdAndDelete(id);
-        res.redirect('http://localhost:3000/admin');
+        res.redirect('https://lf-papelaria.herokuapp.com/admin');
     }catch(error){
         console.log(error);
     };
@@ -120,7 +120,7 @@ exports.editarProduto = async (req, res)=>{
         if(novaFileira !== '' && novaFileira !== 'Clique para mudar fileira'){
             await ProdutoModel.findByIdAndUpdate(idProduto, {fileira: novaFileira});
         };
-        res.redirect('http://localhost:3000/admin');
+        res.redirect('https://lf-papelaria.herokuapp.com/admin');
     }catch(error){
         console.log(error);
     };
