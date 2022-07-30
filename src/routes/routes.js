@@ -24,5 +24,7 @@ router.post('/admin-fileira-delete', AdminController.deletarFileira);
 router.post('/admin-criar-produto', multer({storage}).single('imgProduto') ,AdminController.criarProduto);
 router.post('/admin-deletar-produto', AdminController.deletarProduto);
 router.post('/admin-editar-produto', AdminController.editarProduto);
+router.post('/adicionar-banner', multer({storage}).single('bannerImg'), AdminController.adicionarBanner);
+router.post('/admin-banner-delete', AdminController.excluirBanner);
 
 module.exports = router;

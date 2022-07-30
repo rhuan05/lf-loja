@@ -11,7 +11,7 @@ body{
 header{
     display: flex;
     height: 70px;
-    background: #FFC839;
+    background: #00AB59;
     align-items: center;
     padding: 0 40px;
 }
@@ -92,10 +92,27 @@ header .form-search{
     font-weight: bold;
 }
 .banner{
-    width: 100%;
+    overflow-x: hidden;
+    position: relative;
+}
+.overflow--banner{
+    display: flex;
+    transition: 1s;
 }
 .banner img{
+    width: 100vw;
+}
+.circles{
+    position: absolute;
+    bottom: 0;
     width: 100%;
+    text-align: center;
+}
+.circles i{
+    cursor: pointer;
+    font-size: 10px;
+    margin: 0;
+    opacity: .5;
 }
 .fileiras{
     width: 90%;
@@ -134,7 +151,7 @@ header .form-search{
 .container--produto .btnContato{
     font-weight: bold;
     color: white;
-    background: #FFC839;
+    background: #00AB59;
     font-size: 16px;
     width: 80%;
     padding: 3px 0px;
@@ -156,7 +173,7 @@ h3, .container--produto p{
     margin-top: 30px;
 }
 footer{
-    background:#FFC839;
+    background:#00AB59;
     width: 100%;
     height: 80px;
     margin-top: 100px;

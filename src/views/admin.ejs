@@ -111,6 +111,31 @@
             </div>
             <button class="btn btnNovoProduto">Novo produto</button>
         </section>
+        <section>
+            <h2>Seus banners</h2>
+            <div class="containerBanners">
+                <div class="overflowBanners">
+                    <% for(let i=0; i < banners.length; i++) { %>
+                        <div class="confirmacaoExcluirBanner">
+                            <div class="x cancelarExcluirBanner">X</div>
+                            <form action="admin-banner-delete" method="post">
+                                <input type="hidden" name="idBannerForDelete" value="<%= banners[i]._id %>" />
+                                <p>Deseja mesmo excluir esse banner?</p>
+                                <button>Sim, quero excluir esse banner</button>
+                            </form>
+                        </div>
+                        <div class="containerBannerIcon">
+                            <div class="x xContainerBanner">X</div>
+                            <img src="<%= banners[i].imgBanner %>" alt="Imagem do banner" class="imgBanner" />
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+            <form action="adicionar-banner" method="post" enctype="multipart/form-data">
+                <input type="file" name="bannerImg" />
+                <button>Enviar</button>
+            </form>
+        </section>
     </div>
     <script src="admin/admin.js"></script>
 </body>

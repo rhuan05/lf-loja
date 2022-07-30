@@ -31,7 +31,18 @@
             <p>Entre em contato pelo whatsapp</p>
         </section>
         <section class="banner">
-            <img src="images/imagem-banner.png" alt="Imagem do banner" />
+            <div class="overflow--banner">
+                <% for(let i=0; i < banners.length; i++) {%>
+                    <img src="<%= banners[i].imgBanner %>" alt="Imagem no banner" class="imgBanner" />
+                <% } %>
+            </div>
+            <% if(banners.length > 1) { %>
+                <div class="circles">
+                    <% for(let i=0; i < banners.length; i++) { %>
+                        <i class="fa-solid fa-circle"></i>
+                    <% } %>
+                </div>
+            <% } %>
         </section>
         <section class="fileiras">
             <% for(let contador=0; contador < fileiras.length; contador++) {%>

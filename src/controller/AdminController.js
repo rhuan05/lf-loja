@@ -1,15 +1,23 @@
 require('dotenv').config();
 const FileiraModel = require('../models/Fileira');
 const ProdutoModel = require('../models/Produtos');
+const BannerModel = require('../models/Banner');
 
 const cloudinary = require('cloudinary').v2;
+
+cloudinary.config({
+    cloud_name: process.env.CLOUD_NAME,
+    api_key: process.env.API_KEY,
+    api_secret: process.env.API_SECRET,
+});
 
 exports.paginaInicialAdmin = async (req, res)=>{
     const fileiras = await FileiraModel.find();
     const produtos = await ProdutoModel.find();
+    const banners = await BannerModel.find();
 
     try{
-        res.render('admin', {error: '', fileiras, produtos});
+        res.render('admin', {error: '', fileiras, produtos, banners});
     }catch(error){
         console.log(error);
     };
@@ -18,10 +26,11 @@ exports.paginaInicialAdmin = async (req, res)=>{
 exports.adicionarFileira = async (req, res)=>{
     const fileiras = await FileiraModel.find();
     const produtos = await ProdutoModel.find();
+    const banners = await BannerModel.find();
     const { titulo } = req.body;
 
     if(!titulo){
-        return res.render('admin', {error: 'Preencha o campo titulo para adicionar uma fileira.', fileiras, produtos});
+        return res.render('admin', {error: 'Preencha o campo titulo para adicionar uma fileira.', fileiras, produtos, banners});
     };
 
     const novaFileira = new FileiraModel({
@@ -55,29 +64,21 @@ exports.deletarFileira = async (req, res)=>{
 exports.criarProduto = async (req, res)=>{
     const fileiras = await FileiraModel.find();
     const produtos = await ProdutoModel.find();
+    const banners = await BannerModel.find();
     const { name, preco, select } = req.body;
     const imgProduto = req.file;
 
     if(!name || !preco){
-        return res.render('admin', {error: 'Para criar um produto é preciso preencher todos os campos.', fileiras, produtos});
+        return res.render('admin', {error: 'Para criar um produto é preciso preencher todos os campos.', fileiras, produtos, banners});
     };
 
     if(!imgProduto){
-        return res.render('admin', {error:'Para criar um produto é preciso inserir uma imagem nele.', fileiras, produtos});
+        return res.render('admin', {error:'Para criar um produto é preciso inserir uma imagem nele.', fileiras, produtos, banners});
     };
     
     if(select === 'valorNuloSelect'){
-        return res.render('admin', {error: 'É preciso selecionar uma fileira para criar um produto.', fileiras, produtos});
+        return res.render('admin', {error: 'É preciso selecionar uma fileira para criar um produto.', fileiras, produtos, banners});
     };
-
-
-    // Cloudinary
-    const cloudinary = require('cloudinary').v2;
-        cloudinary.config({
-        cloud_name: process.env.CLOUD_NAME,
-        api_key: process.env.API_KEY,
-        api_secret: process.env.API_SECRET,
-    });
 
     try{
         const resCloudinary = await cloudinary.uploader.upload(req.file.path);
@@ -123,5 +124,39 @@ exports.editarProduto = async (req, res)=>{
         res.redirect('https://lf-papelaria.herokuapp.com/admin');
     }catch(error){
         console.log(error);
+    };
+};
+
+exports.adicionarBanner = async (req, res)=>{
+    const fileiras = await FileiraModel.find();
+    const produtos = await ProdutoModel.find();
+    const banners = await BannerModel.find();
+
+    if(!req.file){
+        return res.render('admin', {error: 'É preciso selecionar uma imagem para adicionar um banner.', fileiras, produtos, banners});
+    };
+
+    try{
+        const resCloudinary = await cloudinary.uploader.upload(req.file.path);
+
+        const novoBanner = new BannerModel({
+            imgBanner: resCloudinary.url,
+        });
+
+        await novoBanner.save();
+        res.redirect('https://lf-papelaria.herokuapp.com/admin');
+    }catch(err){
+        console.log(err);
+    };
+};
+
+exports.excluirBanner = async(req, res)=>{
+    const { idBannerForDelete } = req.body;
+
+    try{
+        await BannerModel.findByIdAndDelete(idBannerForDelete);
+        res.redirect('https://lf-papelaria.herokuapp.com/admin');
+    }catch(err){
+        console.log(err);
     };
 };

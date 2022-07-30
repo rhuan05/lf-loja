@@ -1,13 +1,13 @@
 const FileiraModel = require('../models/Fileira');
 const ProdutosModel = require('../models/Produtos');
+const BannerModel = require('../models/Banner');
 
 exports.paginaInicialHome = async (req, res)=>{
-    console.log('Estou aqui');
     const fileiras = await FileiraModel.find();
     const fileiraProdutos = await ProdutosModel.find();
-    console.log('Estou aqui 2');
+    const banners = await BannerModel.find();
     
-    res.render('home', {fileiras, fileiraProdutos});
+    res.render('home', {fileiras, fileiraProdutos, banners});
 };
 
 exports.procurarProduto = async (req, res)=>{

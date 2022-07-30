@@ -85,3 +85,35 @@ fecharEditarProduto.forEach((e)=>{
         model.style.display = 'none'
     });
 });
+
+let imgBanner = document.querySelectorAll('.imgBanner').length;
+
+document.querySelector('.overflowBanners').style.width = `${imgBanner * 300}px`;
+
+
+
+let xContainerBanner = document.querySelectorAll('.xContainerBanner');
+
+xContainerBanner.forEach((e)=>{
+    e.addEventListener('click', ()=>{
+        let containerBannerIcon = e.parentElement;
+        let overflowBanners = [...containerBannerIcon.parentElement.children];
+        let elementoClicado = -2;
+
+        overflowBanners.forEach((e)=>{
+            elementoClicado = elementoClicado + 1;
+
+            if(e.innerHTML === containerBannerIcon.innerHTML){
+                overflowBanners[elementoClicado].style.display = 'block'
+            };
+        });
+    });
+});
+
+let cancelarExcluirBanner = document.querySelectorAll('.cancelarExcluirBanner');
+
+cancelarExcluirBanner.forEach((e)=>{
+    e.addEventListener('click', ()=>{
+        e.parentElement.style.display = 'none';
+    });
+});
